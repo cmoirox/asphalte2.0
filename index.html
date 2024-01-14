@@ -17,51 +17,19 @@
             object-fit: cover;
         }
 
-        button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-size: 1.5em;
-            cursor: pointer;
-        }
-
         /* Cacher les contrôles du lecteur sur les téléphones */
         @media only screen and (max-width: 600px) {
             video {
                 pointer-events: none; /* Désactive les interactions utilisateur avec la vidéo */
                 touch-action: none; /* Désactive les gestes tactiles sur la vidéo */
             }
-
-            button {
-                display: block;
-            }
         }
     </style>
 </head>
 <body>
-    <video id="myVideo" loop muted playsinline>
+    <video autoplay loop muted playsinline>
         <source src="https://www.dropbox.com/scl/fi/h1qqjhwwmp2vfihq6pgol/ASHPALTE-MAG.mp4?rlkey=e6sqfu6yfq9gcuec3blssznv9&raw=1" type="video/mp4">
         Votre navigateur ne supporte pas la lecture de la vidéo.
-    </video>
-    
-    <button onclick="playPause()">Play/Pause</button>
-
-    <script>
-        var video = document.getElementById("myVideo");
-        var button = document.querySelector("button");
-
-        function playPause() {
-            if (video.paused) {
-                video.play();
-                button.style.display = "none";
-            } else {
-                video.pause();
-            }
-        }
-    </script>
+    </video>    
 </body>
 </html>
