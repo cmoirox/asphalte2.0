@@ -56,6 +56,14 @@
             video.play();
             playButton.style.display = "none";
         }
+
+        // Ajout de l'événement canplay pour démarrer la vidéo sur les appareils mobiles
+        video.addEventListener("canplay", function() {
+            if (/Mobi/i.test(navigator.userAgent)) {
+                playButton.style.display = "block";
+            }
+        });
     </script>
 </body>
 </html>
+
