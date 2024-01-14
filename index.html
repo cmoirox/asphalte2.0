@@ -17,21 +17,50 @@
             object-fit: cover;
         }
 
+        button {
+            display: none; /* Cacher le bouton sur les écrans plus larges */
+        }
+
         /* Cacher les contrôles du lecteur sur les téléphones */
         @media only screen and (max-width: 600px) {
             video {
                 pointer-events: none; /* Désactive les interactions utilisateur avec la vidéo */
                 touch-action: none; /* Désactive les gestes tactiles sur la vidéo */
             }
+
+            button {
+                display: block; /* Afficher le bouton sur les écrans plus petits */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: transparent;
+                border: none;
+                font-size: 24px;
+                color: #fff;
+                cursor: pointer;
+            }
         }
     </style>
 </head>
 <body>
-    <video autoplay loop muted playsinline>
+    <video id="myVideo" loop muted playsinline>
         <!-- Remplacez le lien ci-dessous par le lien direct vers votre vidéo sur Dropbox -->
         <source src="https://www.dropbox.com/scl/fi/53tcreju1zelasa2vvha3/anim1-fond.mp4?rlkey=kwx6whfm08o5u292t5i196ntp&raw=1" type="video/mp4">
         <!-- Vous pouvez ajouter d'autres sources pour différents formats -->
         Votre navigateur ne supporte pas la lecture de la vidéo.
     </video>
+
+    <button id="playButton" onclick="startVideo()">Lancer la vidéo</button>
+
+    <script>
+        var video = document.getElementById("myVideo");
+        var playButton = document.getElementById("playButton");
+
+        function startVideo() {
+            video.play();
+            playButton.style.display = "none";
+        }
+    </script>
 </body>
 </html>
