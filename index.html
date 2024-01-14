@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ma Vidéo Responsive</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Pour éviter les barres de défilement */
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Cacher les contrôles du lecteur sur les téléphones */
+        @media only screen and (max-width: 600px) {
+            video {
+                pointer-events: none; /* Désactive les interactions utilisateur avec la vidéo */
+                touch-action: none; /* Désactive les gestes tactiles sur la vidéo */
+            }
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted playsinline>
+        <!-- Remplacez le lien ci-dessous par le lien direct vers votre vidéo sur Dropbox -->
+        <source src="https://www.dropbox.com/scl/fi/53tcreju1zelasa2vvha3/anim1-fond.mp4?rlkey=kwx6whfm08o5u292t5i196ntp&raw=1" type="video/mp4">
+        <!-- Vous pouvez ajouter d'autres sources pour différents formats -->
+        Votre navigateur ne supporte pas la lecture de la vidéo.
+    </video>
+</body>
+</html>
